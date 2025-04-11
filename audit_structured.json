@@ -1,0 +1,82 @@
+[
+  {
+    "title": "SLD-1:",
+    "description": "The SSVault.dexType is used to denote the DEX to be v2 (value 0) type or v3 (value 1, 2) type.\nHowever, value 0 can also be uninitialized default value of uint256 type, hence it is recommended to\nuse 0 as the undefined DEX type and 1, 2, 3 for the actual DEX type values.",
+    "severity": "Informational",
+    "condition": "dexType is uninitialized, defaulting to 0",
+    "mitigation": "Use Enums to define the types and reserve the value 0 to be the undefined DEX type.\n\nCode:\n59: uint256 public dexType; // 0 V2, 1 V3\n496: if (dexType == 0) {\n497: oracle.update();\n498: } else {\n499: require(dexType == 1 || dexType == 2, \"wrong dex type\");\n500: require(block.timestamp > endTime, \"not end\");\n501: }",
+    "category": "Logical",
+    "code_reference": "59: uint256 public dexType; // 0 V2, 1 V3\n496: if (dexType == 0) {\n497: oracle.update();\n498: } else {\n499: require(dexType == 1 || dexType == 2, \"wrong dex type\");\n500: require(block.timestamp > endTime, \"not end\");\n501: }",
+    "status": "Fixed"
+  },
+  {
+    "title": "SLD-2:",
+    "description": "The function deposit(), withdraw(), payMargin(), paySLDMargin(), withdrawMargin() in\nthe SSVault has risk of reentrancy because of ERC777 token call back function. Taking deposit()\nfunction for example, address(baseToken) can be ERC777 token and if the contract has registered\nERC1820 for callback function, ERC777._callTokensToSend() will be called and malicious code\ncan call deposit() again to re-enter. Because _amount value is updated after the\n_safeTransferFrom() call, this can lead to more _amount to be deposited than the maxVolume.",
+    "severity": "Critical",
+    "condition": "When baseToken is an ERC777 token with an ERC1820 registered callback function.",
+    "mitigation": "Use Checks-Effects-Interaction pattern in the code and ReentrancyGuard.sol to prevent the\npossible reentrancy attacks.\n8\nShield SS-Vault Security Assessment\n\nCode:\n180: function deposit(uint256 _amount) public notTerminated {\n181: require(_amount >= minDeposit, \"deposit amount too small\");\n182: require(block.timestamp < endTime, \"vault ended\");\n183: require(totalDeposit.add(_amount) <= maxVolume, \"exceed vault volume\");\n184:\n185: UserInfo storage info = userInfo[msg.sender];\n186:\n187: require(\n188: info.totalDeposit.add(_amount) <= maxDeposit,\n189: \"exceed individual deposit\"\n190: );\n191:\n192: uint256 _before = baseToken.balanceOf(address(this));\n193: _safeTransferFrom(\n194: address(baseToken),\n195: msg.sender,\n196: address(this),\n197: _amount\n198: );\n199: uint256 _after = baseToken.balanceOf(address(this));\n200: // Additional check for deflationary tokens\n201: _amount = _after.sub(_before);",
+    "category": "Reentrancy",
+    "code_reference": "180: function deposit(uint256 _amount) public notTerminated {\n181: require(_amount >= minDeposit, \"deposit amount too small\");\n182: require(block.timestamp < endTime, \"vault ended\");\n183: require(totalDeposit.add(_amount) <= maxVolume, \"exceed vault volume\");\n184:\n185: UserInfo storage info = userInfo[msg.sender];\n186:\n187: require(\n188: info.totalDeposit.add(_amount) <= maxDeposit,\n189: \"exceed individual deposit\"\n190: );\n191:\n192: uint256 _before = baseToken.balanceOf(address(this));\n193: _safeTransferFrom(\n194: address(baseToken),\n195: msg.sender,\n196: address(this),\n197: _amount\n198: );\n199: uint256 _after = baseToken.balanceOf(address(this));\n200: // Additional check for deflationary tokens\n201: _amount = _after.sub(_before);",
+    "status": "Fixed"
+  },
+  {
+    "title": "SLD-3:",
+    "description": "The function sendSettleRewards() sends sldToken at the end based on gas consumed to\nmsg.sender to encourage users to actively maintain the contract state. However, the gas and SLD\ntoken prices are maintained by the contract owner as the state variable. If the gasPrice and\nsldPriceForRewardsNumerator token price are not updated in time and are far from what the\ncurrent market price is, the attacker can repeatedly call SSVault::updatePrice() to obtain\nSldTokens and sell them to complete the arbitrage.",
+    "severity": "Critical",
+    "condition": "The gasPrice and sldPriceForRewardsNumerator are not updated to reflect current market prices.",
+    "mitigation": "Use oracle to get the update to date SLD token and gas price.\n\nCode:\n395: function sendSettleRewards(uint256 _gasUsed) internal {\n396: uint256 gasFeeUsed = _gasUsed\n397: .mul(gasPrice)\n398: .mul(getBNBPrice())\n399: .mul(feebackNumerator)\n400: .div(feebackDenominator)\n401: .div(MULTIPLIER);\n402:\n403: uint256 rewards = gasFeeUsed.mul(sldPriceForRewardsDenominator).div(\n404: sldPriceForRewardsNumerator\n405: );\n406:\n407: if (rewards > 0) {\n408: sldMargin = sldMargin.sub(rewards);\n409: _safeTransfer(address(sldToken), msg.sender, rewards);\n410: }\n411: }",
+    "category": "Oracle Manipulation",
+    "code_reference": "395: function sendSettleRewards(uint256 _gasUsed) internal {\n396: uint256 gasFeeUsed = _gasUsed\n397: .mul(gasPrice)\n398: .mul(getBNBPrice())\n399: .mul(feebackNumerator)\n400: .div(feebackDenominator)\n401: .div(MULTIPLIER);\n402:\n403: uint256 rewards = gasFeeUsed.mul(sldPriceForRewardsDenominator).div(\n404: sldPriceForRewardsNumerator\n405: );\n406:\n407: if (rewards > 0) {\n408: sldMargin = sldMargin.sub(rewards);\n409: _safeTransfer(address(sldToken), msg.sender, rewards);\n410: }\n411: }",
+    "status": "Acknowledged"
+  },
+  {
+    "title": "SLD-4:",
+    "description": "The orderIDs[i] value can potentially point to an invalid order.",
+    "severity": "Medium",
+    "condition": "When an invalid orderID is passed to the function",
+    "mitigation": "Verify the index is valid by orderIDs[i] < orders.length check.\n\nCode:\n379: function settleOrders(uint256[] memory orderIDs) public {\n380: uint256 gasUsed;\n381:\n382: require(isStriked, \"not strike\");\n383: require(settledPrice > 0, \"need settle price\");\n384: require(!isAllSettled(), \"all settled\");\n385:\n386: for (uint256 i = 0; i < orderIDs.length; i++) {\n387: gasUsed = gasUsed + settleOrder(orderIDs[i]);\n388: }",
+    "category": "Business Logic",
+    "code_reference": "379: function settleOrders(uint256[] memory orderIDs) public {\n380: uint256 gasUsed;\n381:\n382: require(isStriked, \"not strike\");\n383: require(settledPrice > 0, \"need settle price\");\n384: require(!isAllSettled(), \"all settled\");\n385:\n386: for (uint256 i = 0; i < orderIDs.length; i++) {\n387: gasUsed = gasUsed + settleOrder(orderIDs[i]);\n388: }",
+    "status": "Fixed"
+  },
+  {
+    "title": "SLD-5:",
+    "description": "State variable tokenAggregator is initialized in the constructor but never used anywhere else.",
+    "severity": "Informational",
+    "condition": "State variable tokenAggregator is initialized in the constructor but not used elsewhere",
+    "mitigation": "Check if tokenAggregator is indeed needed.\n\nCode:\n26: address public tokenAggregator;",
+    "category": "Code Style",
+    "code_reference": "26: address public tokenAggregator;",
+    "status": "Acknowledged"
+  },
+  {
+    "title": "SLD-6:",
+    "description": "It is recommended to have consistent naming convention across variables.",
+    "severity": "Informational",
+    "condition": "The variable meanPricePeriod uses camelCase while other constants use uppercase.",
+    "mitigation": "Rename meanPricePeriod to MEAN_PRICE_PERIOD for constant naming consistency.\n\nCode:\n10: contract SSVaultManager {\n11: using SafeMath for uint256;\n12:\n13: uint256 internal constant MULTIPLIER = 1e18;\n14: uint256 internal constant DECIMALS = 18;\n15: uint256 internal constant SECONDS_IN_YEAR = 365 days;\n16: uint256 internal constant meanPricePeriod = 30 minutes;",
+    "category": "Code Style",
+    "code_reference": "10: contract SSVaultManager {\n11: using SafeMath for uint256;\n12:\n13: uint256 internal constant MULTIPLIER = 1e18;\n14: uint256 internal constant DECIMALS = 18;\n15: uint256 internal constant SECONDS_IN_YEAR = 365 days;\n16: uint256 internal constant meanPricePeriod = 30 minutes;",
+    "status": "Fixed"
+  },
+  {
+    "title": "SLD-7:",
+    "description": "Index the parameters in the defined event such as event VaultCreated to help easier consuming\nthe contract on-chain data by filtering the desired indexed field.",
+    "severity": "Informational",
+    "condition": "When an event has more than three parameters, causing only the first three to be indexed, which may exclude necessary fields.",
+    "mitigation": "Add indexed keywords to important parameter fields.\n\nCode:\n53: event VaultCreated(\n54: address vault,\n55: address holder,\n56: address token0,\n57: address token1,\n58: uint256 maxVolume,\n59: uint256 timestamp\n60: );\n61: event OracleCreated(address vault, address oracle);\n62:\n63: event SetMarginRatio(uint256 oldValue, uint256 newValue);\n64: event SetMinVolume(uint256 oldValue, uint256 newValue);\n65: event SetMinPeriod(uint256 oldValue, uint256 newValue);\n66: event SetGovernance(address oldValue, address newValue);\n67:\n68: event SetFeeRatio(address vault, uint256 value);\n69: event SetGasPrice(address vault, uint256 value);\n70: event SetSLDPrice(address vault, uint256 value0, uint256 value1);\n71: event SetParameters(address vault, uint256 value0, uint256 value1);\n72: event SetOracle(address vault, address value);",
+    "category": "Business Logic",
+    "code_reference": "53: event VaultCreated(\n54: address vault,\n55: address holder,\n56: address token0,\n57: address token1,\n58: uint256 maxVolume,\n59: uint256 timestamp\n60: );\n61: event OracleCreated(address vault, address oracle);\n62:\n63: event SetMarginRatio(uint256 oldValue, uint256 newValue);\n64: event SetMinVolume(uint256 oldValue, uint256 newValue);\n65: event SetMinPeriod(uint256 oldValue, uint256 newValue);\n66: event SetGovernance(address oldValue, address newValue);\n67:\n68: event SetFeeRatio(address vault, uint256 value);\n69: event SetGasPrice(address vault, uint256 value);\n70: event SetSLDPrice(address vault, uint256 value0, uint256 value1);\n71: event SetParameters(address vault, uint256 value0, uint256 value1);\n72: event SetOracle(address vault, address value);",
+    "status": "Acknowledged"
+  },
+  {
+    "title": "SLD-8:",
+    "description": "The secondsAgo parameter is not honored in the consult() function implementation but in the\nSSVault.getTokenValue(), parameter 60 is passed in. From the interface abstraction perspective,\nall the child contracts should implement ShieldOracle interface features, and secondsAgo\nrepresents the valid time frame of the price is valid for, hence ShieldOracleV2 should also\nimplement it. From security perspective, enforce the price valid time can prevent the stale price to be\nused accidentally for contract calculation.",
+    "severity": "Medium",
+    "condition": "The secondsAgo parameter is not used in the consult() function.",
+    "mitigation": "Add a check comparing with blockTimestampLast, which is updated in the\nShieldOracle.update() function. And require the block.timestamp is within secondsAgo.\n\nCode:\n86: function consult(address tokenIn, uint32 secondsAgo)",
+    "category": "Business Logic",
+    "code_reference": "86: function consult(address tokenIn, uint32 secondsAgo)",
+    "status": "Fixed"
+  }
+]
