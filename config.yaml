@@ -1,0 +1,27 @@
+# KG-RAG hyperparameters
+CONTEXT_VOLUME : 100
+QUESTION_VS_CONTEXT_SIMILARITY_PERCENTILE_THRESHOLD : 75
+QUESTION_VS_CONTEXT_MINIMUM_SIMILARITY : 0.5
+SENTENCE_EMBEDDING_MODEL_FOR_NODE_RETRIEVAL : 'sentence-transformers/all-MiniLM-L6-v2'
+SENTENCE_EMBEDDING_MODEL_FOR_CONTEXT_RETRIEVAL : 'microsoft/codebert-base'
+
+# VectorDB hyperparameters
+VECTOR_DB_PATH : '/data/somank/KG_RAG/data/vectorDB/'
+VECTOR_DB_SENTENCE_EMBEDDING_MODEL : 'sentence-transformers/all-MiniLM-L6-v2'
+
+# Path for context file from SPOKE KG
+NODE_CONTEXT_PATH : '/data/datasetbyshu.csv'
+
+# Llama model name (Refer Hugging face to get the correct name for the model version you would like to use, also make sure you have the right permission to use the model)
+LLAMA_MODEL_NAME : 'meta-llama/Llama-2-13b-chat-hf'
+LLAMA_MODEL_BRANCH : 'main'
+
+# Path for caching LLM model files (When the model gets downloaded from hugging face, it will be saved in this path)
+LLM_CACHE_DIR : '/data/llm_models/huggingface'
+LLM_TEMPERATURE : 0
+
+# Path to save results
+SAVE_RESULTS_PATH : '/data/results'
+
+
+
