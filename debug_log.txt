@@ -1,0 +1,175 @@
+2025-05-09 16:25:23,338 - Use pytorch device_name: cpu
+2025-05-09 16:25:23,341 - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-05-09 16:25:23,356 - Starting new HTTPS connection (1): huggingface.co:443
+2025-05-09 16:25:23,698 - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json HTTP/1.1" 200 0
+2025-05-09 16:25:23,967 - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json HTTP/1.1" 200 0
+2025-05-09 16:25:24,239 - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md HTTP/1.1" 200 0
+2025-05-09 16:25:24,522 - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json HTTP/1.1" 200 0
+2025-05-09 16:25:24,790 - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/sentence_bert_config.json HTTP/1.1" 200 0
+2025-05-09 16:25:25,587 - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json HTTP/1.1" 404 0
+2025-05-09 16:25:26,123 - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json HTTP/1.1" 200 0
+2025-05-09 16:25:29,586 - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2025-05-09 16:25:29,946 - https://huggingface.co:443 "GET /api/models/sentence-transformers/all-MiniLM-L6-v2/revision/main HTTP/1.1" 200 6748
+2025-05-09 16:25:30,240 - https://huggingface.co:443 "GET /api/models/sentence-transformers/all-MiniLM-L6-v2 HTTP/1.1" 200 6748
+2025-05-09 16:25:30,509 - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-05-09 16:25:31,432 - Starting component System
+2025-05-09 16:25:31,432 - Starting component Posthog
+2025-05-09 16:25:31,433 - Starting component OpenTelemetryClient
+2025-05-09 16:25:31,433 - Starting component SqliteDB
+2025-05-09 16:25:31,625 - Starting component SimpleQuotaEnforcer
+2025-05-09 16:25:31,625 - Starting component SimpleRateLimitEnforcer
+2025-05-09 16:25:31,625 - Starting component LocalSegmentManager
+2025-05-09 16:25:31,626 - Starting component LocalExecutor
+2025-05-09 16:25:31,626 - Starting component SegmentAPI
+2025-05-09 16:25:31,796 - Collection langchain already exists, returning existing collection.
+2025-05-09 16:25:32,165 - Starting new HTTPS connection (1): us.i.posthog.com:443
+2025-05-09 16:25:32,400 - Starting component PersistentLocalHnswSegment
+2025-05-09 16:25:32,493 - Hits: [(Document(id='574c6224-4a11-4276-8478-ddb01b9eafcf', metadata={'project_name': 'Abyss Finance-Abyss Eth2 Depositor'}, page_content='uint256 public constant collateral = 32 ether;\r\n\r\n    /**\r\n     * @dev Setting Eth2 Smart Contract address during construction.\r\n     */\r\n    constructor(address depositContractAddress) public {\r\n        depositContract = IDepositContract(address(depositContractAddress));\r\n    }\r\n\r\n    /**\r\n     * @dev This contract will not accept direct ETH transactions.\r\n     */\r\n    receive() external payable {\r\n        revert("AbyssEth2Depositor: do not send ETH directly here");\r\n    }\r\n\r\n    /**\r\n     * @dev Function that allows to deposit up to 100 nodes at once.\r\n     *\r\n     * - pubkeys                - Array of BLS12-381 public keys.'), 0.9773706197738647)]
+2025-05-09 16:25:32,513 - Full context: {
+  "filePath": "DAppSCAN-source/contracts/QuillAudits-Abyss Finance-Abyss Eth2 Depositor/abyss-eth2depositor-a2d58dea4d79846dc682fe93ac3e0eca02323d11/contracts/AbyssEth2Depositor.sol",
+  "SWCs": [
+    {
+      "category": "SWC-122-Lack of Proper Signature Verification",
+      "function": "deposit",
+      "lineNumber": "L61 - L90"
+    },
+    {
+      "category": "SWC-107-Reentrancy",
+      "function": "deposit",
+      "lineNumber": "L82"
+    }
+  ]
+}
+
+/*
+\u2591\u2588\u2588\u2588\u2588\u2588\u2557\u2591\u2588\u2588\u2588\u2588\u2588\u2588\u2557\u2591\u2588\u2588\u2557\u2591\u2591\u2591\u2588\u2588\u2557\u2591\u2588\u2588\u2588\u2588\u2588\u2588\u2557\u2591\u2588\u2588\u2588\u2588\u2588\u2588\u2557\u2003\u2003\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2557\u2588\u2588\u2557\u2588\u2588\u2588\u2557\u2591\u2591\u2588\u2588\u2557\u2591\u2588\u2588\u2588\u2588\u2588\u2557\u2591\u2588\u2588\u2588\u2557\u2591\u2591\u2588\u2588\u2557\u2591\u2588\u2588\u2588\u2588\u2588\u2557\u2591\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2557
+\u2588\u2588\u2554\u2550\u2550\u2588\u2588\u2557\u2588\u2588\u2554\u2550\u2550\u2588\u2588\u2557\u255a\u2588\u2588\u2557\u2591\u2588\u2588\u2554\u255d\u2588\u2588\u2554\u2550\u2550\u2550\u2550\u255d\u2588\u2588\u2554\u2550\u2550\u2550\u2550\u255d\u2003\u2003\u2588\u2588\u2554\u2550\u2550\u2550\u2550\u255d\u2588\u2588\u2551\u2588\u2588\u2588\u2588\u2557\u2591\u2588\u2588\u2551\u2588\u2588\u2554\u2550\u2550\u2588\u2588\u2557\u2588\u2588\u2588\u2588\u2557\u2591\u2588\u2588\u2551\u2588\u2588\u2554\u2550\u2550\u2588\u2588\u2557\u2588\u2588\u2554\u2550\u2550\u2550\u2550\u255d
+\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2551\u2588\u2588\u2588\u2588\u2588\u2588\u2566\u255d\u2591\u255a\u2588\u2588\u2588\u2588\u2554\u255d\u2591\u255a\u2588\u2588\u2588\u2588\u2588\u2557\u2591\u255a\u2588\u2588\u2588\u2588\u2588\u2557\u2591\u2003\u2003\u2588\u2588\u2588\u2588\u2588\u2557\u2591\u2591\u2588\u2588\u2551\u2588\u2588\u2554\u2588\u2588\u2557\u2588\u2588\u2551\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2551\u2588\u2588\u2554\u2588\u2588\u2557\u2588\u2588\u2551\u2588\u2588\u2551\u2591\u2591\u255a\u2550\u255d\u2588\u2588\u2588\u2588\u2588\u2557\u2591\u2591
+\u2588\u2588\u2554\u2550\u2550\u2588\u2588\u2551\u2588\u2588\u2554\u2550\u2550\u2588\u2588\u2557\u2591\u2591\u255a\u2588\u2588\u2554\u255d\u2591\u2591\u2591\u255a\u2550\u2550\u2550\u2588\u2588\u2557\u2591\u255a\u2550\u2550\u2550\u2588\u2588\u2557\u2003\u2003\u2588\u2588\u2554\u2550\u2550\u255d\u2591\u2591\u2588\u2588\u2551\u2588\u2588\u2551\u255a\u2588\u2588\u2588\u2588\u2551\u2588\u2588\u2554\u2550\u2550\u2588\u2588\u2551\u2588\u2588\u2551\u255a\u2588\u2588\u2588\u2588\u2551\u2588\u2588\u2551\u2591\u2591\u2588\u2588\u2557\u2588\u2588\u2554\u2550\u2550\u255d\u2591\u2591
+\u2588\u2588\u2551\u2591\u2591\u2588\u2588\u2551\u2588\u2588\u2588\u2588\u2588\u2588\u2566\u255d\u2591\u2591\u2591\u2588\u2588\u2551\u2591\u2591\u2591\u2588\u2588\u2588\u2588\u2588\u2588\u2554\u255d\u2588\u2588\u2588\u2588\u2588\u2588\u2554\u255d\u2003\u2003\u2588\u2588\u2551\u2591\u2591\u2591\u2591\u2591\u2588\u2588\u2551\u2588\u2588\u2551\u2591\u255a\u2588\u2588\u2588\u2551\u2588\u2588\u2551\u2591\u2591\u2588\u2588\u2551\u2588\u2588\u2551\u2591\u255a\u2588\u2588\u2588\u2551\u255a\u2588\u2588\u2588\u2588\u2588\u2554\u255d\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2557
+\u255a\u2550\u255d\u2591\u2591\u255a\u2550\u255d\u255a\u2550\u2550\u2550\u2550\u2550\u255d\u2591\u2591\u2591\u2591\u255a\u2550\u255d\u2591\u2591\u2591\u255a\u2550\u2550\u2550\u2550\u2550\u255d\u2591\u255a\u2550\u2550\u2550\u2550\u2550\u255d\u2591\u2003\u2003\u255a\u2550\u255d\u2591\u2591\u2591\u2591\u2591\u255a\u2550\u255d\u255a\u2550\u255d\u2591\u2591\u255a\u2550\u2550\u255d\u255a\u2550\u255d\u2591\u2591\u255a\u2550\u255d\u255a\u2550\u255d\u2591\u2591\u255a\u2550\u2550\u255d\u2591\u255a\u2550\u2550\u2550\u2550\u255d\u2591\u255a\u2550\u2550\u2550\u2550\u2550\u2550\u255d
+*/
+
+// SPDX-License-Identifier: MIT
+
+pragma solidity 0.6.11;
+pragma experimental ABIEncoderV2;
+
+import "@openzeppelin/contracts/math/SafeMath.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/utils/Pausable.sol";
+import "../contracts/interfaces/IDepositContract.sol";
+
+contract AbyssEth2Depositor is Pausable, Ownable {
+    using SafeMath for uint256;
+
+    /**
+     * @dev Eth2 Deposit Contract address.
+     */
+    IDepositContract public depositContract;
+
+    /**
+     * @dev Minimal and maximum amount of nodes per transaction.
+     */
+    uint256 public constant nodesMinAmount = 1;
+    uint256 public constant nodesMaxAmount = 100;
+
+    /**
+     * @dev Collateral size of one node.
+     */
+    uint256 public constant collateral = 32 ether;
+
+    /**
+     * @dev Setting Eth2 Smart Contract address during construction.
+     */
+    constructor(address depositContractAddress) public {
+        depositContract = IDepositContract(address(depositContractAddress));
+    }
+
+    /**
+     * @dev This contract will not accept direct ETH transactions.
+     */
+    receive() external payable {
+        revert("AbyssEth2Depositor: do not send ETH directly here");
+    }
+
+    /**
+     * @dev Function that allows to deposit up to 100 nodes at once.
+     *
+     * - pubkeys                - Array of BLS12-381 public keys.
+     * - withdrawal_credentials - Array of commitments to a public keys for withdrawals.
+     * - signatures             - Array of BLS12-381 signatures.
+     * - deposit_data_roots     - Array of the SHA-256 hashes of the SSZ-encoded DepositData objects.
+     */
+    //  SWC-122-Lack of Proper Signature Verification: L61 - L90
+    // SWC-107-Reentrancy: L82
+    function deposit(
+        bytes[] calldata pubkeys,
+        bytes[] calldata withdrawal_credentials,
+        bytes[] calldata signatures,
+        bytes32[] calldata deposit_data_roots
+    ) external payable whenNotPaused {
+
+        uint256 nodesAmount = pubkeys.length;
+
+        require(nodesAmount > 0 && nodesAmount <= 100, "AbyssEth2Depositor: you can deposit only 1 to 100 nodes per transaction");
+        require(msg.value == SafeMath.mul(collateral, nodesAmount), "AbyssEth2Depositor: the amount of ETH does not match the amount of nodes");
+        require(
+            withdrawal_credentials.length == nodesAmount &&
+            signatures.length == nodesAmount &&
+            deposit_data_roots.length == nodesAmount,
+            "AbyssEth2Depositor: amount of parameters do no match");
+
+        for (uint256 i = 0; i < nodesAmount; ++i) {
+
+            IDepositContract(address(depositContract)).deposit{value: collateral}(
+                pubkeys[i],
+                withdrawal_credentials[i],
+                signatures[i],
+                deposit_data_roots[i]
+            );
+
+        }
+
+        emit DepositEvent(msg.sender, nodesAmount);
+    }
+
+    /**
+     * @dev Triggers stopped state.
+     *
+     * Requirements:
+     *
+     * - The contract must not be paused.
+     */
+    function pause() public onlyOwner {
+      _pause();
+    }
+
+    /**
+     * @dev Returns to normal state.
+     *
+     * Requirements:
+     *
+     * - The contract must be paused.
+     */
+    function unpause() public onlyOwner {
+      _unpause();
+    }
+
+    event DepositEvent(address from, uint256 nodesAmount);
+}
+. 
+2025-05-09 16:25:33,254 - https://us.i.posthog.com:443 "POST /batch/ HTTP/1.1" 200 15
+2025-05-09 16:25:33,346 - connect_tcp.started host='127.0.0.1' port=11434 local_address=None timeout=None socket_options=None
+2025-05-09 16:25:33,347 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000290669541A0>
+2025-05-09 16:25:33,347 - send_request_headers.started request=<Request [b'POST']>
+2025-05-09 16:25:33,348 - send_request_headers.complete
+2025-05-09 16:25:33,348 - send_request_body.started request=<Request [b'POST']>
+2025-05-09 16:25:33,348 - send_request_body.complete
+2025-05-09 16:25:33,348 - receive_response_headers.started request=<Request [b'POST']>
+2025-05-09 16:26:02,655 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Fri, 09 May 2025 09:26:02 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-05-09 16:26:02,694 - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-05-09 16:26:02,707 - receive_response_body.started request=<Request [b'POST']>
+2025-05-09 16:27:05,401 - receive_response_body.complete
+2025-05-09 16:27:05,414 - response_closed.started
+2025-05-09 16:27:05,416 - response_closed.complete
