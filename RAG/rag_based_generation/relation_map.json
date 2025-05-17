@@ -1,0 +1,107 @@
+{
+  "Gasless": {
+    "vuln_type": "Gasless",
+    "relations": ["gas_dependency"],
+    "detect_static": [
+      "Check if contract requires users to pay gas but does not handle gas payments correctly.",
+      "Look for any gas-free operations in the contract."
+    ]
+  },
+  "Unchecked External Call": {
+    "vuln_type": "Unchecked External Call",
+    "relations": ["unchecked_call"],
+    "detect_static": [
+      "Detect external calls without success checks (e.g., missing require(success)).",
+      "Check if external calls are made without verifying the results."
+    ]
+  },
+  "Reentrancy": {
+    "vuln_type": "Reentrancy",
+    "relations": ["control_flow", "inter_function_call", "read_write"],
+    "detect_static": [
+      "Check if external call (call, send, delegatecall) occurs before state update.",
+      "Build Call Graph to detect fallback loops.",
+      "Track read/write of state variables like balance[msg.sender]."
+    ]
+  },
+  "Timestamp Dependency": {
+    "vuln_type": "Timestamp Dependency",
+    "relations": ["data_flow", "control_flow"],
+    "detect_static": [
+      "Taint analysis on block.timestamp → conditional branches.",
+      "Find logic dependent on block.timestamp without resistance."
+    ]
+  },
+  "Block Number Dependency": {
+    "vuln_type": "Block Number Dependency",
+    "relations": ["data_flow", "control_flow"],
+    "detect_static": [
+      "Taint analysis on block.number → conditional branches.",
+      "Find logic dependent on block.number without resistance."
+    ]
+  },
+  "Dangerous Delegatecall": {
+    "vuln_type": "Dangerous Delegatecall",
+    "relations": ["call_graph", "external_call"],
+    "detect_static": [
+      "Detect dangerous use of delegatecall.",
+      "Analyze function call dependencies and target contract security."
+    ]
+  },
+  "Freezing Ether": {
+    "vuln_type": "Freezing Ether",
+    "relations": ["state_dependency", "ether_management"],
+    "detect_static": [
+      "Detect functions that lock Ether with no way for users to retrieve it.",
+      "Check if Ether deposits lack refund mechanisms."
+    ]
+  },
+  "Integer Overflow": {
+    "vuln_type": "Integer Overflow",
+    "relations": ["arithmetic_operations"],
+    "detect_static": [
+      "Detect arithmetic operations involving state variables.",
+      "Check if overflow protections exist in arithmetic operations."
+    ]
+  },
+  "Integer Underflow": {
+    "vuln_type": "Integer Underflow",
+    "relations": ["arithmetic_operations"],
+    "detect_static": [
+      "Detect arithmetic operations involving state variables.",
+      "Check if underflow protections exist in arithmetic operations."
+    ]
+  },
+  "Unexpected Ether Reception": {
+    "vuln_type": "Unexpected Ether Reception",
+    "relations": ["ether_management"],
+    "detect_static": [
+      "Check for functions that accept Ether without handling it properly.",
+      "Analyze functions that receive Ether without refunding users."
+    ]
+  },
+  "Authorization through tx.origin": {
+    "vuln_type": "Authorization through tx.origin",
+    "relations": ["authorization_logic"],
+    "detect_static": [
+      "Check for use of tx.origin in authorization logic.",
+      "Detect missing access control mechanisms."
+    ]
+  },
+  "False Assert": {
+    "vuln_type": "False Assert",
+    "relations": ["control_flow", "assert_usage"],
+    "detect_static": [
+      "Analyze assert conditions in the contract.",
+      "Detect incorrect assert conditions that may halt the contract."
+    ]
+  },
+  "False Suicide": {
+    "vuln_type": "False Suicide",
+    "relations": ["contract_destruction"],
+    "detect_static": [
+      "Detect unsafe use of selfdestruct.",
+      "Identify unverified or unnecessary selfdestruct calls."
+    ]
+  }
+}

@@ -1,175 +1,1259 @@
-2025-05-09 16:25:23,338 - Use pytorch device_name: cpu
-2025-05-09 16:25:23,341 - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2025-05-09 16:25:23,356 - Starting new HTTPS connection (1): huggingface.co:443
-2025-05-09 16:25:23,698 - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json HTTP/1.1" 200 0
-2025-05-09 16:25:23,967 - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json HTTP/1.1" 200 0
-2025-05-09 16:25:24,239 - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md HTTP/1.1" 200 0
-2025-05-09 16:25:24,522 - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json HTTP/1.1" 200 0
-2025-05-09 16:25:24,790 - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/sentence_bert_config.json HTTP/1.1" 200 0
-2025-05-09 16:25:25,587 - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json HTTP/1.1" 404 0
-2025-05-09 16:25:26,123 - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json HTTP/1.1" 200 0
-2025-05-09 16:25:29,586 - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
-2025-05-09 16:25:29,946 - https://huggingface.co:443 "GET /api/models/sentence-transformers/all-MiniLM-L6-v2/revision/main HTTP/1.1" 200 6748
-2025-05-09 16:25:30,240 - https://huggingface.co:443 "GET /api/models/sentence-transformers/all-MiniLM-L6-v2 HTTP/1.1" 200 6748
-2025-05-09 16:25:30,509 - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
-2025-05-09 16:25:31,432 - Starting component System
-2025-05-09 16:25:31,432 - Starting component Posthog
-2025-05-09 16:25:31,433 - Starting component OpenTelemetryClient
-2025-05-09 16:25:31,433 - Starting component SqliteDB
-2025-05-09 16:25:31,625 - Starting component SimpleQuotaEnforcer
-2025-05-09 16:25:31,625 - Starting component SimpleRateLimitEnforcer
-2025-05-09 16:25:31,625 - Starting component LocalSegmentManager
-2025-05-09 16:25:31,626 - Starting component LocalExecutor
-2025-05-09 16:25:31,626 - Starting component SegmentAPI
-2025-05-09 16:25:31,796 - Collection langchain already exists, returning existing collection.
-2025-05-09 16:25:32,165 - Starting new HTTPS connection (1): us.i.posthog.com:443
-2025-05-09 16:25:32,400 - Starting component PersistentLocalHnswSegment
-2025-05-09 16:25:32,493 - Hits: [(Document(id='574c6224-4a11-4276-8478-ddb01b9eafcf', metadata={'project_name': 'Abyss Finance-Abyss Eth2 Depositor'}, page_content='uint256 public constant collateral = 32 ether;\r\n\r\n    /**\r\n     * @dev Setting Eth2 Smart Contract address during construction.\r\n     */\r\n    constructor(address depositContractAddress) public {\r\n        depositContract = IDepositContract(address(depositContractAddress));\r\n    }\r\n\r\n    /**\r\n     * @dev This contract will not accept direct ETH transactions.\r\n     */\r\n    receive() external payable {\r\n        revert("AbyssEth2Depositor: do not send ETH directly here");\r\n    }\r\n\r\n    /**\r\n     * @dev Function that allows to deposit up to 100 nodes at once.\r\n     *\r\n     * - pubkeys                - Array of BLS12-381 public keys.'), 0.9773706197738647)]
-2025-05-09 16:25:32,513 - Full context: {
-  "filePath": "DAppSCAN-source/contracts/QuillAudits-Abyss Finance-Abyss Eth2 Depositor/abyss-eth2depositor-a2d58dea4d79846dc682fe93ac3e0eca02323d11/contracts/AbyssEth2Depositor.sol",
+2025-05-13 13:17:05,315 - connect_tcp.started host='127.0.0.1' port=11434 local_address=None timeout=None socket_options=None
+2025-05-13 13:17:05,316 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000022DF9E9CAD0>
+2025-05-13 13:17:05,317 - send_request_headers.started request=<Request [b'POST']>
+2025-05-13 13:17:05,317 - send_request_headers.complete
+2025-05-13 13:17:05,317 - send_request_body.started request=<Request [b'POST']>
+2025-05-13 13:17:05,317 - send_request_body.complete
+2025-05-13 13:17:05,317 - receive_response_headers.started request=<Request [b'POST']>
+2025-05-13 13:17:20,835 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Tue, 13 May 2025 06:17:20 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-05-13 13:17:20,868 - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-05-13 13:17:20,876 - receive_response_body.started request=<Request [b'POST']>
+2025-05-13 13:18:20,801 - receive_response_body.complete
+2025-05-13 13:18:20,806 - response_closed.started
+2025-05-13 13:18:20,807 - response_closed.complete
+2025-05-13 13:21:35,558 - connect_tcp.started host='127.0.0.1' port=11434 local_address=None timeout=None socket_options=None
+2025-05-13 13:21:35,562 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001E5C22A0AD0>
+2025-05-13 13:21:35,562 - send_request_headers.started request=<Request [b'POST']>
+2025-05-13 13:21:35,563 - send_request_headers.complete
+2025-05-13 13:21:35,563 - send_request_body.started request=<Request [b'POST']>
+2025-05-13 13:21:35,564 - send_request_body.complete
+2025-05-13 13:21:35,564 - receive_response_headers.started request=<Request [b'POST']>
+2025-05-13 13:21:37,410 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Tue, 13 May 2025 06:21:37 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-05-13 13:21:37,411 - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-05-13 13:21:37,411 - receive_response_body.started request=<Request [b'POST']>
+2025-05-13 13:22:35,384 - receive_response_body.complete
+2025-05-13 13:22:35,388 - response_closed.started
+2025-05-13 13:22:35,389 - response_closed.complete
+2025-05-13 13:26:38,425 - connect_tcp.started host='127.0.0.1' port=11434 local_address=None timeout=None socket_options=None
+2025-05-13 13:26:38,439 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001D99E69C980>
+2025-05-13 13:26:38,439 - send_request_headers.started request=<Request [b'POST']>
+2025-05-13 13:26:38,440 - send_request_headers.complete
+2025-05-13 13:26:38,441 - send_request_body.started request=<Request [b'POST']>
+2025-05-13 13:26:38,441 - send_request_body.complete
+2025-05-13 13:26:38,441 - receive_response_headers.started request=<Request [b'POST']>
+2025-05-13 13:26:41,080 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Tue, 13 May 2025 06:26:41 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-05-13 13:26:41,088 - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-05-13 13:26:41,091 - receive_response_body.started request=<Request [b'POST']>
+2025-05-13 13:27:51,576 - receive_response_body.complete
+2025-05-13 13:27:51,587 - response_closed.started
+2025-05-13 13:27:51,588 - response_closed.complete
+2025-05-13 13:28:17,409 - connect_tcp.started host='127.0.0.1' port=11434 local_address=None timeout=None socket_options=None
+2025-05-13 13:28:17,412 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001377E49CAD0>
+2025-05-13 13:28:17,412 - send_request_headers.started request=<Request [b'POST']>
+2025-05-13 13:28:17,413 - send_request_headers.complete
+2025-05-13 13:28:17,413 - send_request_body.started request=<Request [b'POST']>
+2025-05-13 13:28:17,415 - send_request_body.complete
+2025-05-13 13:28:17,416 - receive_response_headers.started request=<Request [b'POST']>
+2025-05-13 13:28:19,238 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Tue, 13 May 2025 06:28:19 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-05-13 13:28:19,240 - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-05-13 13:28:19,240 - receive_response_body.started request=<Request [b'POST']>
+2025-05-13 13:29:19,494 - receive_response_body.complete
+2025-05-13 13:29:19,501 - response_closed.started
+2025-05-13 13:29:19,503 - response_closed.complete
+2025-05-13 13:33:14,377 - connect_tcp.started host='127.0.0.1' port=11434 local_address=None timeout=None socket_options=None
+2025-05-13 13:33:14,379 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001B31CA98AD0>
+2025-05-13 13:33:14,379 - send_request_headers.started request=<Request [b'POST']>
+2025-05-13 13:33:14,380 - send_request_headers.complete
+2025-05-13 13:33:14,380 - send_request_body.started request=<Request [b'POST']>
+2025-05-13 13:33:14,380 - send_request_body.complete
+2025-05-13 13:33:14,380 - receive_response_headers.started request=<Request [b'POST']>
+2025-05-13 13:33:15,928 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Tue, 13 May 2025 06:33:15 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-05-13 13:33:15,928 - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-05-13 13:33:15,929 - receive_response_body.started request=<Request [b'POST']>
+2025-05-13 13:34:12,792 - receive_response_body.complete
+2025-05-13 13:34:12,802 - response_closed.started
+2025-05-13 13:34:12,803 - response_closed.complete
+2025-05-13 13:35:11,993 - connect_tcp.started host='127.0.0.1' port=11434 local_address=None timeout=None socket_options=None
+2025-05-13 13:35:11,996 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000200FF198AD0>
+2025-05-13 13:35:11,996 - send_request_headers.started request=<Request [b'POST']>
+2025-05-13 13:35:11,996 - send_request_headers.complete
+2025-05-13 13:35:11,996 - send_request_body.started request=<Request [b'POST']>
+2025-05-13 13:35:11,997 - send_request_body.complete
+2025-05-13 13:35:11,997 - receive_response_headers.started request=<Request [b'POST']>
+2025-05-13 13:35:14,311 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Tue, 13 May 2025 06:35:14 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-05-13 13:35:14,313 - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-05-13 13:35:14,313 - receive_response_body.started request=<Request [b'POST']>
+2025-05-13 13:36:18,281 - receive_response_body.complete
+2025-05-13 13:36:18,305 - response_closed.started
+2025-05-13 13:36:18,307 - response_closed.complete
+2025-05-13 13:39:11,682 - connect_tcp.started host='127.0.0.1' port=11434 local_address=None timeout=None socket_options=None
+2025-05-13 13:39:11,687 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001379CEC8980>
+2025-05-13 13:39:11,687 - send_request_headers.started request=<Request [b'POST']>
+2025-05-13 13:39:11,689 - send_request_headers.complete
+2025-05-13 13:39:11,689 - send_request_body.started request=<Request [b'POST']>
+2025-05-13 13:39:11,690 - send_request_body.complete
+2025-05-13 13:39:11,691 - receive_response_headers.started request=<Request [b'POST']>
+2025-05-13 13:39:13,890 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Tue, 13 May 2025 06:39:13 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-05-13 13:39:13,892 - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-05-13 13:39:13,893 - receive_response_body.started request=<Request [b'POST']>
+2025-05-13 13:40:15,527 - receive_response_body.complete
+2025-05-13 13:40:15,547 - response_closed.started
+2025-05-13 13:40:15,550 - response_closed.complete
+2025-05-13 13:45:29,201 - connect_tcp.started host='127.0.0.1' port=11434 local_address=None timeout=None socket_options=None
+2025-05-13 13:45:29,202 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001DBDB49C980>
+2025-05-13 13:45:29,202 - send_request_headers.started request=<Request [b'POST']>
+2025-05-13 13:45:29,202 - send_request_headers.complete
+2025-05-13 13:45:29,203 - send_request_body.started request=<Request [b'POST']>
+2025-05-13 13:45:29,203 - send_request_body.complete
+2025-05-13 13:45:29,203 - receive_response_headers.started request=<Request [b'POST']>
+2025-05-13 13:45:41,086 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Tue, 13 May 2025 06:45:41 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-05-13 13:45:41,090 - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-05-13 13:45:41,092 - receive_response_body.started request=<Request [b'POST']>
+2025-05-13 13:46:51,784 - receive_response_body.complete
+2025-05-13 13:46:51,796 - response_closed.started
+2025-05-13 13:46:51,797 - response_closed.complete
+2025-05-13 13:50:24,660 - connect_tcp.started host='127.0.0.1' port=11434 local_address=None timeout=None socket_options=None
+2025-05-13 13:50:24,664 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000020B485D4AD0>
+2025-05-13 13:50:24,665 - send_request_headers.started request=<Request [b'POST']>
+2025-05-13 13:50:24,665 - send_request_headers.complete
+2025-05-13 13:50:24,666 - send_request_body.started request=<Request [b'POST']>
+2025-05-13 13:50:24,666 - send_request_body.complete
+2025-05-13 13:50:24,666 - receive_response_headers.started request=<Request [b'POST']>
+2025-05-13 13:50:26,665 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Tue, 13 May 2025 06:50:26 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-05-13 13:50:26,668 - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-05-13 13:50:26,670 - receive_response_body.started request=<Request [b'POST']>
+2025-05-13 13:51:32,522 - receive_response_body.complete
+2025-05-13 13:51:32,552 - response_closed.started
+2025-05-13 13:51:32,554 - response_closed.complete
+2025-05-13 13:52:22,019 - connect_tcp.started host='127.0.0.1' port=11434 local_address=None timeout=None socket_options=None
+2025-05-13 13:52:22,020 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000002B19CEF4AD0>
+2025-05-13 13:52:22,020 - send_request_headers.started request=<Request [b'POST']>
+2025-05-13 13:52:22,020 - send_request_headers.complete
+2025-05-13 13:52:22,020 - send_request_body.started request=<Request [b'POST']>
+2025-05-13 13:52:22,021 - send_request_body.complete
+2025-05-13 13:52:22,021 - receive_response_headers.started request=<Request [b'POST']>
+2025-05-13 13:52:23,772 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Tue, 13 May 2025 06:52:23 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-05-13 13:52:23,773 - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-05-13 13:52:23,773 - receive_response_body.started request=<Request [b'POST']>
+2025-05-13 13:53:35,683 - receive_response_body.complete
+2025-05-13 13:53:35,709 - response_closed.started
+2025-05-13 13:53:35,712 - response_closed.complete
+2025-05-13 13:54:39,243 - connect_tcp.started host='127.0.0.1' port=11434 local_address=None timeout=None socket_options=None
+2025-05-13 13:54:39,245 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000019F307F8AD0>
+2025-05-13 13:54:39,245 - send_request_headers.started request=<Request [b'POST']>
+2025-05-13 13:54:39,245 - send_request_headers.complete
+2025-05-13 13:54:39,245 - send_request_body.started request=<Request [b'POST']>
+2025-05-13 13:54:39,245 - send_request_body.complete
+2025-05-13 13:54:39,245 - receive_response_headers.started request=<Request [b'POST']>
+2025-05-13 13:54:41,016 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Tue, 13 May 2025 06:54:41 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-05-13 13:54:41,018 - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-05-13 13:54:41,018 - receive_response_body.started request=<Request [b'POST']>
+2025-05-13 13:55:44,742 - receive_response_body.complete
+2025-05-13 13:55:44,754 - response_closed.started
+2025-05-13 13:55:44,756 - response_closed.complete
+2025-05-13 13:56:23,286 - connect_tcp.started host='127.0.0.1' port=11434 local_address=None timeout=None socket_options=None
+2025-05-13 13:56:23,289 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000021381794AD0>
+2025-05-13 13:56:23,289 - send_request_headers.started request=<Request [b'POST']>
+2025-05-13 13:56:23,289 - send_request_headers.complete
+2025-05-13 13:56:23,289 - send_request_body.started request=<Request [b'POST']>
+2025-05-13 13:56:23,290 - send_request_body.complete
+2025-05-13 13:56:23,290 - receive_response_headers.started request=<Request [b'POST']>
+2025-05-13 13:56:25,556 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Tue, 13 May 2025 06:56:25 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-05-13 13:56:25,556 - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-05-13 13:56:25,557 - receive_response_body.started request=<Request [b'POST']>
+2025-05-13 13:57:21,982 - receive_response_body.complete
+2025-05-13 13:57:21,986 - response_closed.started
+2025-05-13 13:57:21,986 - response_closed.complete
+2025-05-13 13:58:48,993 - Use pytorch device_name: cpu
+2025-05-13 13:58:49,000 - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-05-13 13:58:49,085 - Starting new HTTPS connection (1): huggingface.co:443
+2025-05-13 13:58:50,167 - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json HTTP/1.1" 200 0
+2025-05-13 13:58:50,574 - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json HTTP/1.1" 200 0
+2025-05-13 13:58:51,395 - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md HTTP/1.1" 200 0
+2025-05-13 13:58:51,808 - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json HTTP/1.1" 200 0
+2025-05-13 13:58:52,115 - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/sentence_bert_config.json HTTP/1.1" 200 0
+2025-05-13 13:58:52,418 - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json HTTP/1.1" 404 0
+2025-05-13 13:58:52,694 - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json HTTP/1.1" 200 0
+2025-05-13 13:58:59,692 - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2025-05-13 13:59:00,816 - https://huggingface.co:443 "GET /api/models/sentence-transformers/all-MiniLM-L6-v2/revision/main HTTP/1.1" 200 6812
+2025-05-13 13:59:01,531 - https://huggingface.co:443 "GET /api/models/sentence-transformers/all-MiniLM-L6-v2 HTTP/1.1" 200 6812
+2025-05-13 13:59:02,145 - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-05-13 13:59:03,994 - Starting component System
+2025-05-13 13:59:03,996 - Starting component Posthog
+2025-05-13 13:59:03,996 - Starting component OpenTelemetryClient
+2025-05-13 13:59:03,996 - Starting component SqliteDB
+2025-05-13 13:59:04,283 - Starting component SimpleQuotaEnforcer
+2025-05-13 13:59:04,284 - Starting component SimpleRateLimitEnforcer
+2025-05-13 13:59:04,284 - Starting component LocalSegmentManager
+2025-05-13 13:59:04,285 - Starting component LocalExecutor
+2025-05-13 13:59:04,285 - Starting component SegmentAPI
+2025-05-13 13:59:04,613 - Collection langchain already exists, returning existing collection.
+2025-05-13 13:59:04,829 - Starting new HTTPS connection (1): us.i.posthog.com:443
+2025-05-13 13:59:06,036 - https://us.i.posthog.com:443 "POST /batch/ HTTP/1.1" 200 15
+2025-05-13 13:59:06,534 - Starting component PersistentLocalHnswSegment
+2025-05-13 13:59:06,711 - Hits: [(Document(id='7d1744ad-b419-4dc9-8e64-6556a750b623', metadata={'project_name': 'Sekuritance'}, page_content="/**\r\n\r\n * @dev Wrappers over Solidity's arithmetic operations with added overflow\r\n\r\n * checks.\r\n\r\n *\r\n\r\n * Arithmetic operations in Solidity wrap on overflow. This can easily result\r\n\r\n * in bugs, because programmers usually assume that an overflow raises an\r\n\r\n * error, which is the standard behavior in high level programming languages.\r\n\r\n * `SafeMath` restores this intuition by reverting the transaction when an\r\n\r\n * operation overflows.\r\n\r\n *\r\n\r\n * Using this library instead of the unchecked operations eliminates an entire\r\n\r\n * class of bugs, so it's recommended to use it always.\r\n\r\n */\r\n\r\nlibrary SafeMath {\r\n\r\n    /**"), 0.9819024801254272)]
+2025-05-13 13:59:06,800 - Full context: {
+  "filePath": "DAppSCAN-source/contracts/Hacken-Sekuritance/TokenMintERC20Token0x887168120cb89Fb06F3E74Dc4AF20D67dF0977f6/TokenMintERC20Token0x887168120cb89Fb06F3E74Dc4AF20D67dF0977f6.sol",
   "SWCs": [
     {
-      "category": "SWC-122-Lack of Proper Signature Verification",
-      "function": "deposit",
-      "lineNumber": "L61 - L90"
-    },
-    {
-      "category": "SWC-107-Reentrancy",
-      "function": "deposit",
-      "lineNumber": "L82"
+      "category": "SWC-102-Outdated Compiler Version",
+      "function": "N/A",
+      "lineNumber": "L13"
     }
   ]
 }
 
-/*
-\u2591\u2588\u2588\u2588\u2588\u2588\u2557\u2591\u2588\u2588\u2588\u2588\u2588\u2588\u2557\u2591\u2588\u2588\u2557\u2591\u2591\u2591\u2588\u2588\u2557\u2591\u2588\u2588\u2588\u2588\u2588\u2588\u2557\u2591\u2588\u2588\u2588\u2588\u2588\u2588\u2557\u2003\u2003\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2557\u2588\u2588\u2557\u2588\u2588\u2588\u2557\u2591\u2591\u2588\u2588\u2557\u2591\u2588\u2588\u2588\u2588\u2588\u2557\u2591\u2588\u2588\u2588\u2557\u2591\u2591\u2588\u2588\u2557\u2591\u2588\u2588\u2588\u2588\u2588\u2557\u2591\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2557
-\u2588\u2588\u2554\u2550\u2550\u2588\u2588\u2557\u2588\u2588\u2554\u2550\u2550\u2588\u2588\u2557\u255a\u2588\u2588\u2557\u2591\u2588\u2588\u2554\u255d\u2588\u2588\u2554\u2550\u2550\u2550\u2550\u255d\u2588\u2588\u2554\u2550\u2550\u2550\u2550\u255d\u2003\u2003\u2588\u2588\u2554\u2550\u2550\u2550\u2550\u255d\u2588\u2588\u2551\u2588\u2588\u2588\u2588\u2557\u2591\u2588\u2588\u2551\u2588\u2588\u2554\u2550\u2550\u2588\u2588\u2557\u2588\u2588\u2588\u2588\u2557\u2591\u2588\u2588\u2551\u2588\u2588\u2554\u2550\u2550\u2588\u2588\u2557\u2588\u2588\u2554\u2550\u2550\u2550\u2550\u255d
-\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2551\u2588\u2588\u2588\u2588\u2588\u2588\u2566\u255d\u2591\u255a\u2588\u2588\u2588\u2588\u2554\u255d\u2591\u255a\u2588\u2588\u2588\u2588\u2588\u2557\u2591\u255a\u2588\u2588\u2588\u2588\u2588\u2557\u2591\u2003\u2003\u2588\u2588\u2588\u2588\u2588\u2557\u2591\u2591\u2588\u2588\u2551\u2588\u2588\u2554\u2588\u2588\u2557\u2588\u2588\u2551\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2551\u2588\u2588\u2554\u2588\u2588\u2557\u2588\u2588\u2551\u2588\u2588\u2551\u2591\u2591\u255a\u2550\u255d\u2588\u2588\u2588\u2588\u2588\u2557\u2591\u2591
-\u2588\u2588\u2554\u2550\u2550\u2588\u2588\u2551\u2588\u2588\u2554\u2550\u2550\u2588\u2588\u2557\u2591\u2591\u255a\u2588\u2588\u2554\u255d\u2591\u2591\u2591\u255a\u2550\u2550\u2550\u2588\u2588\u2557\u2591\u255a\u2550\u2550\u2550\u2588\u2588\u2557\u2003\u2003\u2588\u2588\u2554\u2550\u2550\u255d\u2591\u2591\u2588\u2588\u2551\u2588\u2588\u2551\u255a\u2588\u2588\u2588\u2588\u2551\u2588\u2588\u2554\u2550\u2550\u2588\u2588\u2551\u2588\u2588\u2551\u255a\u2588\u2588\u2588\u2588\u2551\u2588\u2588\u2551\u2591\u2591\u2588\u2588\u2557\u2588\u2588\u2554\u2550\u2550\u255d\u2591\u2591
-\u2588\u2588\u2551\u2591\u2591\u2588\u2588\u2551\u2588\u2588\u2588\u2588\u2588\u2588\u2566\u255d\u2591\u2591\u2591\u2588\u2588\u2551\u2591\u2591\u2591\u2588\u2588\u2588\u2588\u2588\u2588\u2554\u255d\u2588\u2588\u2588\u2588\u2588\u2588\u2554\u255d\u2003\u2003\u2588\u2588\u2551\u2591\u2591\u2591\u2591\u2591\u2588\u2588\u2551\u2588\u2588\u2551\u2591\u255a\u2588\u2588\u2588\u2551\u2588\u2588\u2551\u2591\u2591\u2588\u2588\u2551\u2588\u2588\u2551\u2591\u255a\u2588\u2588\u2588\u2551\u255a\u2588\u2588\u2588\u2588\u2588\u2554\u255d\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2557
-\u255a\u2550\u255d\u2591\u2591\u255a\u2550\u255d\u255a\u2550\u2550\u2550\u2550\u2550\u255d\u2591\u2591\u2591\u2591\u255a\u2550\u255d\u2591\u2591\u2591\u255a\u2550\u2550\u2550\u2550\u2550\u255d\u2591\u255a\u2550\u2550\u2550\u2550\u2550\u255d\u2591\u2003\u2003\u255a\u2550\u255d\u2591\u2591\u2591\u2591\u2591\u255a\u2550\u255d\u255a\u2550\u255d\u2591\u2591\u255a\u2550\u2550\u255d\u255a\u2550\u255d\u2591\u2591\u255a\u2550\u255d\u255a\u2550\u255d\u2591\u2591\u255a\u2550\u2550\u255d\u2591\u255a\u2550\u2550\u2550\u2550\u255d\u2591\u255a\u2550\u2550\u2550\u2550\u2550\u2550\u255d
+/**
+
+ *Submitted for verification at Etherscan.io on 2021-01-12
+
 */
 
-// SPDX-License-Identifier: MIT
 
-pragma solidity 0.6.11;
-pragma experimental ABIEncoderV2;
 
-import "@openzeppelin/contracts/math/SafeMath.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/utils/Pausable.sol";
-import "../contracts/interfaces/IDepositContract.sol";
+// File: contracts\open-zeppelin-contracts\token\ERC20\IERC20.sol
 
-contract AbyssEth2Depositor is Pausable, Ownable {
-    using SafeMath for uint256;
+
+// SWC-102-Outdated Compiler Version: L13
+pragma solidity ^0.5.0;
+
+
+
+/**
+
+ * @dev Interface of the ERC20 standard as defined in the EIP. Does not include
+
+ * the optional functions; to access them see `ERC20Detailed`.
+
+ */
+
+interface IERC20 {
 
     /**
-     * @dev Eth2 Deposit Contract address.
+
+     * @dev Returns the amount of tokens in existence.
+
      */
-    IDepositContract public depositContract;
+
+    function totalSupply() external view returns (uint256);
+
+
 
     /**
-     * @dev Minimal and maximum amount of nodes per transaction.
+
+     * @dev Returns the amount of tokens owned by `account`.
+
      */
-    uint256 public constant nodesMinAmount = 1;
-    uint256 public constant nodesMaxAmount = 100;
+
+    function balanceOf(address account) external view returns (uint256);
+
+
 
     /**
-     * @dev Collateral size of one node.
-     */
-    uint256 public constant collateral = 32 ether;
 
-    /**
-     * @dev Setting Eth2 Smart Contract address during construction.
-     */
-    constructor(address depositContractAddress) public {
-        depositContract = IDepositContract(address(depositContractAddress));
-    }
+     * @dev Moves `amount` tokens from the caller's account to `recipient`.
 
-    /**
-     * @dev This contract will not accept direct ETH transactions.
-     */
-    receive() external payable {
-        revert("AbyssEth2Depositor: do not send ETH directly here");
-    }
-
-    /**
-     * @dev Function that allows to deposit up to 100 nodes at once.
      *
-     * - pubkeys                - Array of BLS12-381 public keys.
-     * - withdrawal_credentials - Array of commitments to a public keys for withdrawals.
-     * - signatures             - Array of BLS12-381 signatures.
-     * - deposit_data_roots     - Array of the SHA-256 hashes of the SSZ-encoded DepositData objects.
+
+     * Returns a boolean value indicating whether the operation succeeded.
+
+     *
+
+     * Emits a `Transfer` event.
+
      */
-    //  SWC-122-Lack of Proper Signature Verification: L61 - L90
-    // SWC-107-Reentrancy: L82
-    function deposit(
-        bytes[] calldata pubkeys,
-        bytes[] calldata withdrawal_credentials,
-        bytes[] calldata signatures,
-        bytes32[] calldata deposit_data_roots
-    ) external payable whenNotPaused {
 
-        uint256 nodesAmount = pubkeys.length;
+    function transfer(address recipient, uint256 amount) external returns (bool);
 
-        require(nodesAmount > 0 && nodesAmount <= 100, "AbyssEth2Depositor: you can deposit only 1 to 100 nodes per transaction");
-        require(msg.value == SafeMath.mul(collateral, nodesAmount), "AbyssEth2Depositor: the amount of ETH does not match the amount of nodes");
-        require(
-            withdrawal_credentials.length == nodesAmount &&
-            signatures.length == nodesAmount &&
-            deposit_data_roots.length == nodesAmount,
-            "AbyssEth2Depositor: amount of parameters do no match");
 
-        for (uint256 i = 0; i < nodesAmount; ++i) {
 
-            IDepositContract(address(depositContract)).deposit{value: collateral}(
-                pubkeys[i],
-                withdrawal_credentials[i],
-                signatures[i],
-                deposit_data_roots[i]
-            );
+    /**
+
+     * @dev Returns the remaining number of tokens that `spender` will be
+
+     * allowed to spend on behalf of `owner` through `transferFrom`. This is
+
+     * zero by default.
+
+     *
+
+     * This value changes when `approve` or `transferFrom` are called.
+
+     */
+
+    function allowance(address owner, address spender) external view returns (uint256);
+
+
+
+    /**
+
+     * @dev Sets `amount` as the allowance of `spender` over the caller's tokens.
+
+     *
+
+     * Returns a boolean value indicating whether the operation succeeded.
+
+     *
+
+     * > Beware that changing an allowance with this method brings the risk
+
+     * that someone may use both the old and the new allowance by unfortunate
+
+     * transaction ordering. One possible solution to mitigate this race
+
+     * condition is to first reduce the spender's allowance to 0 and set the
+
+     * desired value afterwards:
+
+     * https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729
+
+     *
+
+     * Emits an `Approval` event.
+
+     */
+
+    function approve(address spender, uint256 amount) external returns (bool);
+
+
+
+    /**
+
+     * @dev Moves `amount` tokens from `sender` to `recipient` using the
+
+     * allowance mechanism. `amount` is then deducted from the caller's
+
+     * allowance.
+
+     *
+
+     * Returns a boolean value indicating whether the operation succeeded.
+
+     *
+
+     * Emits a `Transfer` event.
+
+     */
+
+    function transferFrom(address sender, address recipient, uint256 amount) external returns (bool);
+
+
+
+    /**
+
+     * @dev Emitted when `value` tokens are moved from one account (`from`) to
+
+     * another (`to`).
+
+     *
+
+     * Note that `value` may be zero.
+
+     */
+
+    event Transfer(address indexed from, address indexed to, uint256 value);
+
+
+
+    /**
+
+     * @dev Emitted when the allowance of a `spender` for an `owner` is set by
+
+     * a call to `approve`. `value` is the new allowance.
+
+     */
+
+    event Approval(address indexed owner, address indexed spender, uint256 value);
+
+}
+
+
+
+// File: contracts\open-zeppelin-contracts\math\SafeMath.sol
+
+
+
+pragma solidity ^0.5.0;
+
+
+
+/**
+
+ * @dev Wrappers over Solidity's arithmetic operations with added overflow
+
+ * checks.
+
+ *
+
+ * Arithmetic operations in Solidity wrap on overflow. This can easily result
+
+ * in bugs, because programmers usually assume that an overflow raises an
+
+ * error, which is the standard behavior in high level programming languages.
+
+ * `SafeMath` restores this intuition by reverting the transaction when an
+
+ * operation overflows.
+
+ *
+
+ * Using this library instead of the unchecked operations eliminates an entire
+
+ * class of bugs, so it's recommended to use it always.
+
+ */
+
+library SafeMath {
+
+    /**
+
+     * @dev Returns the addition of two unsigned integers, reverting on
+
+     * overflow.
+
+     *
+
+     * Counterpart to Solidity's `+` operator.
+
+     *
+
+     * Requirements:
+
+     * - Addition cannot overflow.
+
+     */
+
+    function add(uint256 a, uint256 b) internal pure returns (uint256) {
+
+        uint256 c = a + b;
+
+        require(c >= a, "SafeMath: addition overflow");
+
+
+
+        return c;
+
+    }
+
+
+
+    /**
+
+     * @dev Returns the subtraction of two unsigned integers, reverting on
+
+     * overflow (when the result is negative).
+
+     *
+
+     * Counterpart to Solidity's `-` operator.
+
+     *
+
+     * Requirements:
+
+     * - Subtraction cannot overflow.
+
+     */
+
+    function sub(uint256 a, uint256 b) internal pure returns (uint256) {
+
+        require(b <= a, "SafeMath: subtraction overflow");
+
+        uint256 c = a - b;
+
+
+
+        return c;
+
+    }
+
+
+
+    /**
+
+     * @dev Returns the multiplication of two unsigned integers, reverting on
+
+     * overflow.
+
+     *
+
+     * Counterpart to Solidity's `*` operator.
+
+     *
+
+     * Requirements:
+
+     * - Multiplication cannot overflow.
+
+     */
+
+    function mul(uint256 a, uint256 b) internal pure returns (uint256) {
+
+        // Gas optimization: this is cheaper than requiring 'a' not being zero, but the
+
+        // benefit is lost if 'b' is also tested.
+
+        // See: https://github.com/OpenZeppelin/openzeppelin-solidity/pull/522
+
+        if (a == 0) {
+
+            return 0;
 
         }
 
-        emit DepositEvent(msg.sender, nodesAmount);
+
+
+        uint256 c = a * b;
+
+        require(c / a == b, "SafeMath: multiplication overflow");
+
+
+
+        return c;
+
     }
+
+
 
     /**
-     * @dev Triggers stopped state.
+
+     * @dev Returns the integer division of two unsigned integers. Reverts on
+
+     * division by zero. The result is rounded towards zero.
+
      *
+
+     * Counterpart to Solidity's `/` operator. Note: this function uses a
+
+     * `revert` opcode (which leaves remaining gas untouched) while Solidity
+
+     * uses an invalid opcode to revert (consuming all remaining gas).
+
+     *
+
      * Requirements:
-     *
-     * - The contract must not be paused.
+
+     * - The divisor cannot be zero.
+
      */
-    function pause() public onlyOwner {
-      _pause();
+
+    function div(uint256 a, uint256 b) internal pure returns (uint256) {
+
+        // Solidity only automatically asserts when dividing by 0
+
+        require(b > 0, "SafeMath: division by zero");
+
+        uint256 c = a / b;
+
+        // assert(a == b * c + a % b); // There is no case in which this doesn't hold
+
+
+
+        return c;
+
     }
+
+
 
     /**
-     * @dev Returns to normal state.
+
+     * @dev Returns the remainder of dividing two unsigned integers. (unsigned integer modulo),
+
+     * Reverts when dividing by zero.
+
      *
+
+     * Counterpart to Solidity's `%` operator. This function uses a `revert`
+
+     * opcode (which leaves remaining gas untouched) while Solidity uses an
+
+     * invalid opcode to revert (consuming all remaining gas).
+
+     *
+
      * Requirements:
-     *
-     * - The contract must be paused.
+
+     * - The divisor cannot be zero.
+
      */
-    function unpause() public onlyOwner {
-      _unpause();
+
+    function mod(uint256 a, uint256 b) internal pure returns (uint256) {
+
+        require(b != 0, "SafeMath: modulo by zero");
+
+        return a % b;
+
     }
 
-    event DepositEvent(address from, uint256 nodesAmount);
 }
-. 
-2025-05-09 16:25:33,254 - https://us.i.posthog.com:443 "POST /batch/ HTTP/1.1" 200 15
-2025-05-09 16:25:33,346 - connect_tcp.started host='127.0.0.1' port=11434 local_address=None timeout=None socket_options=None
-2025-05-09 16:25:33,347 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000290669541A0>
-2025-05-09 16:25:33,347 - send_request_headers.started request=<Request [b'POST']>
-2025-05-09 16:25:33,348 - send_request_headers.complete
-2025-05-09 16:25:33,348 - send_request_body.started request=<Request [b'POST']>
-2025-05-09 16:25:33,348 - send_request_body.complete
-2025-05-09 16:25:33,348 - receive_response_headers.started request=<Request [b'POST']>
-2025-05-09 16:26:02,655 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Fri, 09 May 2025 09:26:02 GMT'), (b'Transfer-Encoding', b'chunked')])
-2025-05-09 16:26:02,694 - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
-2025-05-09 16:26:02,707 - receive_response_body.started request=<Request [b'POST']>
-2025-05-09 16:27:05,401 - receive_response_body.complete
-2025-05-09 16:27:05,414 - response_closed.started
-2025-05-09 16:27:05,416 - response_closed.complete
+
+
+
+// File: contracts\open-zeppelin-contracts\token\ERC20\ERC20.sol
+
+
+
+pragma solidity ^0.5.0;
+
+
+
+
+
+
+
+/**
+
+ * @dev Implementation of the `IERC20` interface.
+
+ *
+
+ * This implementation is agnostic to the way tokens are created. This means
+
+ * that a supply mechanism has to be added in a derived contract using `_mint`.
+
+ * For a generic mechanism see `ERC20Mintable`.
+
+ *
+
+ * *For a detailed writeup see our guide [How to implement supply
+
+ * mechanisms](https://forum.zeppelin.solutions/t/how-to-implement-erc20-supply-mechanisms/226).*
+
+ *
+
+ * We have followed general OpenZeppelin guidelines: functions revert instead
+
+ * of returning `false` on failure. This behavior is nonetheless conventional
+
+ * and does not conflict with the expectations of ERC20 applications.
+
+ *
+
+ * Additionally, an `Approval` event is emitted on calls to `transferFrom`.
+
+ * This allows applications to reconstruct the allowance for all accounts just
+
+ * by listening to said events. Other implementations of the EIP may not emit
+
+ * these events, as it isn't required by the specification.
+
+ *
+
+ * Finally, the non-standard `decreaseAllowance` and `increaseAllowance`
+
+ * functions have been added to mitigate the well-known issues around setting
+
+ * allowances. See `IERC20.approve`.
+
+ */
+
+contract ERC20 is IERC20 {
+
+    using SafeMath for uint256;
+
+
+
+    mapping (address => uint256) private _balances;
+
+
+
+    mapping (address => mapping (address => uint256)) private _allowances;
+
+
+
+    uint256 private _totalSupply;
+
+
+
+    /**
+
+     * @dev See `IERC20.totalSupply`.
+
+     */
+
+    function totalSupply() public view returns (uint256) {
+
+        return _totalSupply;
+
+    }
+
+
+
+    /**
+
+     * @dev See `IERC20.balanceOf`.
+
+     */
+
+    function balanceOf(address account) public view returns (uint256) {
+
+        return _balances[account];
+
+    }
+
+
+
+    /**
+
+     * @dev See `IERC20.transfer`.
+
+     *
+
+     * Requirements:
+
+     *
+
+     * - `recipient` cannot be the zero address.
+
+     * - the caller must have a balance of at least `amount`.
+
+     */
+
+    function transfer(address recipient, uint256 amount) public returns (bool) {
+
+        _transfer(msg.sender, recipient, amount);
+
+        return true;
+
+    }
+
+
+
+    /**
+
+     * @dev See `IERC20.allowance`.
+
+     */
+
+    function allowance(address owner, address spender) public view returns (uint256) {
+
+        return _allowances[owner][spender];
+
+    }
+
+
+
+    /**
+
+     * @dev See `IERC20.approve`.
+
+     *
+
+     * Requirements:
+
+     *
+
+     * - `spender` cannot be the zero address.
+
+     */
+
+    function approve(address spender, uint256 value) public returns (bool) {
+
+        _approve(msg.sender, spender, value);
+
+        return true;
+
+    }
+
+
+
+    /**
+
+     * @dev See `IERC20.transferFrom`.
+
+     *
+
+     * Emits an `Approval` event indicating the updated allowance. This is not
+
+     * required by the EIP. See the note at the beginning of `ERC20`;
+
+     *
+
+     * Requirements:
+
+     * - `sender` and `recipient` cannot be the zero address.
+
+     * - `sender` must have a balance of at least `value`.
+
+     * - the caller must have allowance for `sender`'s tokens of at least
+
+     * `amount`.
+
+     */
+
+    function transferFrom(address sender, address recipient, uint256 amount) public returns (bool) {
+
+        _transfer(sender, recipient, amount);
+
+        _approve(sender, msg.sender, _allowances[sender][msg.sender].sub(amount));
+
+        return true;
+
+    }
+
+
+
+    /**
+
+     * @dev Atomically increases the allowance granted to `spender` by the caller.
+
+     *
+
+     * This is an alternative to `approve` that can be used as a mitigation for
+
+     * problems described in `IERC20.approve`.
+
+     *
+
+     * Emits an `Approval` event indicating the updated allowance.
+
+     *
+
+     * Requirements:
+
+     *
+
+     * - `spender` cannot be the zero address.
+
+     */
+
+    function increaseAllowance(address spender, uint256 addedValue) public returns (bool) {
+
+        _approve(msg.sender, spender, _allowances[msg.sender][spender].add(addedValue));
+
+        return true;
+
+    }
+
+
+
+    /**
+
+     * @dev Atomically decreases the allowance granted to `spender` by the caller.
+
+     *
+
+     * This is an alternative to `approve` that can be used as a mitigation for
+
+     * problems described in `IERC20.approve`.
+
+     *
+
+     * Emits an `Approval` event indicating the updated allowance.
+
+     *
+
+     * Requirements:
+
+     *
+
+     * - `spender` cannot be the zero address.
+
+     * - `spender` must have allowance for the caller of at least
+
+     * `subtractedValue`.
+
+     */
+
+    function decreaseAllowance(address spender, uint256 subtractedValue) public returns (bool) {
+
+        _approve(msg.sender, spender, _allowances[msg.sender][spender].sub(subtractedValue));
+
+        return true;
+
+    }
+
+
+
+    /**
+
+     * @dev Moves tokens `amount` from `sender` to `recipient`.
+
+     *
+
+     * This is internal function is equivalent to `transfer`, and can be used to
+
+     * e.g. implement automatic token fees, slashing mechanisms, etc.
+
+     *
+
+     * Emits a `Transfer` event.
+
+     *
+
+     * Requirements:
+
+     *
+
+     * - `sender` cannot be the zero address.
+
+     * - `recipient` cannot be the zero address.
+
+     * - `sender` must have a balance of at least `amount`.
+
+     */
+
+    function _transfer(address sender, address recipient, uint256 amount) internal {
+
+        require(sender != address(0), "ERC20: transfer from the zero address");
+
+        require(recipient != address(0), "ERC20: transfer to the zero address");
+
+
+
+        _balances[sender] = _balances[sender].sub(amount);
+
+        _balances[recipient] = _balances[recipient].add(amount);
+
+        emit Transfer(sender, recipient, amount);
+
+    }
+
+
+
+    /** @dev Creates `amount` tokens and assigns them to `account`, increasing
+
+     * the total supply.
+
+     *
+
+     * Emits a `Transfer` event with `from` set to the zero address.
+
+     *
+
+     * Requirements
+
+     *
+
+     * - `to` cannot be the zero address.
+
+     */
+
+    function _mint(address account, uint256 amount) internal {
+
+        require(account != address(0), "ERC20: mint to the zero address");
+
+
+
+        _totalSupply = _totalSupply.add(amount);
+
+        _balances[account] = _balances[account].add(amount);
+
+        emit Transfer(address(0), account, amount);
+
+    }
+
+
+
+     /**
+
+     * @dev Destroys `amount` tokens from `account`, reducing the
+
+     * total supply.
+
+     *
+
+     * Emits a `Transfer` event with `to` set to the zero address.
+
+     *
+
+     * Requirements
+
+     *
+
+     * - `account` cannot be the zero address.
+
+     * - `account` must have at least `amount` tokens.
+
+     */
+
+    function _burn(address account, uint256 value) internal {
+
+        require(account != address(0), "ERC20: burn from the zero address");
+
+
+
+        _totalSupply = _totalSupply.sub(value);
+
+        _balances[account] = _balances[account].sub(value);
+
+        emit Transfer(account, address(0), value);
+
+    }
+
+
+
+    /**
+
+     * @dev Sets `amount` as the allowance of `spender` over the `owner`s tokens.
+
+     *
+
+     * This is internal function is equivalent to `approve`, and can be used to
+
+     * e.g. set automatic allowances for certain subsystems, etc.
+
+     *
+
+     * Emits an `Approval` event.
+
+     *
+
+     * Requirements:
+
+     *
+
+     * - `owner` cannot be the zero address.
+
+     * - `spender` cannot be the zero address.
+
+     */
+
+    function _approve(address owner, address spender, uint256 value) internal {
+
+        require(owner != address(0), "ERC20: approve from the zero address");
+
+        require(spender != address(0), "ERC20: approve to the zero address");
+
+
+
+        _allowances[owner][spender] = value;
+
+        emit Approval(owner, spender, value);
+
+    }
+
+
+
+    /**
+
+     * @dev Destoys `amount` tokens from `account`.`amount` is then deducted
+
+     * from the caller's allowance.
+
+     *
+
+     * See `_burn` and `_approve`.
+
+     */
+
+    function _burnFrom(address account, uint256 amount) internal {
+
+        _burn(account, amount);
+
+        _approve(account, msg.sender, _allowances[account][msg.sender].sub(amount));
+
+    }
+
+}
+
+
+
+// File: contracts\ERC20\TokenMintERC20Token.sol
+
+
+
+pragma solidity ^0.5.0;
+
+
+
+
+
+/**
+
+ * @title TokenMintERC20Token
+
+ * @author TokenMint (visit https://tokenmint.io)
+
+ *
+
+ * @dev Standard ERC20 token with burning and optional functions implemented.
+
+ * For full specification of ERC-20 standard see:
+
+ * https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md
+
+ */
+
+contract TokenMintERC20Token is ERC20 {
+
+
+
+    string private _name;
+
+    string private _symbol;
+
+    uint8 private _decimals;
+
+
+
+    /**
+
+     * @dev Constructor.
+
+     * @param name name of the token
+
+     * @param symbol symbol of the token, 3-4 chars is recommended
+
+     * @param decimals number of decimal places of one token unit, 18 is widely used
+
+     * @param totalSupply total supply of tokens in lowest units (depending on decimals)
+
+     * @param tokenOwnerAddress address that gets 100% of token supply
+
+     */
+
+    constructor(string memory name, string memory symbol, uint8 decimals, uint256 totalSupply, address payable feeReceiver, address tokenOwnerAddress) public payable {
+
+      _name = name;
+
+      _symbol = symbol;
+
+      _decimals = decimals;
+
+
+
+      // set tokenOwnerAddress as owner of all tokens
+
+      _mint(tokenOwnerAddress, totalSupply);
+
+
+
+      // pay the service fee for contract deployment
+
+      feeReceiver.transfer(msg.value);
+
+    }
+
+
+
+    /**
+
+     * @dev Burns a specific amount of tokens.
+
+     * @param value The amount of lowest token units to be burned.
+
+     */
+
+    function burn(uint256 value) public {
+
+      _burn(msg.sender, value);
+
+    }
+
+
+
+    // optional functions from ERC20 stardard
+
+
+
+    /**
+
+     * @return the name of the token.
+
+     */
+
+    function name() public view returns (string memory) {
+
+      return _name;
+
+    }
+
+
+
+    /**
+
+     * @return the symbol of the token.
+
+     */
+
+    function symbol() public view returns (string memory) {
+
+      return _symbol;
+
+    }
+
+
+
+    /**
+
+     * @return the number of decimals of the token.
+
+     */
+
+    function decimals() public view returns (uint8) {
+
+      return _decimals;
+
+    }
+
+}. 
+2025-05-13 13:59:06,924 - https://us.i.posthog.com:443 "POST /batch/ HTTP/1.1" 200 15
+2025-05-13 13:59:08,775 - connect_tcp.started host='127.0.0.1' port=11434 local_address=None timeout=None socket_options=None
+2025-05-13 13:59:08,778 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000002138F80F390>
+2025-05-13 13:59:08,783 - send_request_headers.started request=<Request [b'POST']>
+2025-05-13 13:59:08,789 - send_request_headers.complete
+2025-05-13 13:59:08,790 - send_request_body.started request=<Request [b'POST']>
+2025-05-13 13:59:08,791 - send_request_body.complete
+2025-05-13 13:59:08,791 - receive_response_headers.started request=<Request [b'POST']>
+2025-05-13 13:59:19,878 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Tue, 13 May 2025 06:59:19 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-05-13 13:59:19,889 - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-05-13 13:59:19,899 - receive_response_body.started request=<Request [b'POST']>
+2025-05-13 13:59:52,148 - receive_response_body.failed exception=KeyboardInterrupt()
+2025-05-13 13:59:52,150 - response_closed.started
+2025-05-13 13:59:52,159 - response_closed.complete
+2025-05-13 14:37:11,965 - connect_tcp.started host='127.0.0.1' port=11434 local_address=None timeout=None socket_options=None
+2025-05-13 14:37:11,968 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001C003ED3E00>
+2025-05-13 14:37:11,969 - send_request_headers.started request=<Request [b'POST']>
+2025-05-13 14:37:11,969 - send_request_headers.complete
+2025-05-13 14:37:11,970 - send_request_body.started request=<Request [b'POST']>
+2025-05-13 14:37:11,970 - send_request_body.complete
+2025-05-13 14:37:11,970 - receive_response_headers.started request=<Request [b'POST']>
+2025-05-13 14:37:29,854 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Tue, 13 May 2025 07:37:29 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-05-13 14:37:29,902 - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-05-13 14:37:29,913 - receive_response_body.started request=<Request [b'POST']>
+2025-05-13 14:39:35,515 - receive_response_body.complete
+2025-05-13 14:39:35,528 - response_closed.started
+2025-05-13 14:39:35,529 - response_closed.complete
+2025-05-13 14:40:08,358 - connect_tcp.started host='127.0.0.1' port=11434 local_address=None timeout=None socket_options=None
+2025-05-13 14:40:08,360 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000230EFBD7E00>
+2025-05-13 14:40:08,360 - send_request_headers.started request=<Request [b'POST']>
+2025-05-13 14:40:08,360 - send_request_headers.complete
+2025-05-13 14:40:08,360 - send_request_body.started request=<Request [b'POST']>
+2025-05-13 14:40:08,360 - send_request_body.complete
+2025-05-13 14:40:08,360 - receive_response_headers.started request=<Request [b'POST']>
+2025-05-13 14:40:10,455 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Tue, 13 May 2025 07:40:10 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-05-13 14:40:10,477 - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-05-13 14:40:10,477 - receive_response_body.started request=<Request [b'POST']>
+2025-05-13 14:41:56,018 - receive_response_body.complete
+2025-05-13 14:41:56,043 - response_closed.started
+2025-05-13 14:41:56,045 - response_closed.complete
+2025-05-13 14:53:39,949 - connect_tcp.started host='127.0.0.1' port=11434 local_address=None timeout=None socket_options=None
+2025-05-13 14:53:39,951 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000227578D3E00>
+2025-05-13 14:53:39,952 - send_request_headers.started request=<Request [b'POST']>
+2025-05-13 14:53:39,952 - send_request_headers.complete
+2025-05-13 14:53:39,952 - send_request_body.started request=<Request [b'POST']>
+2025-05-13 14:53:39,953 - send_request_body.complete
+2025-05-13 14:53:39,953 - receive_response_headers.started request=<Request [b'POST']>
+2025-05-13 14:53:51,677 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Tue, 13 May 2025 07:53:51 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-05-13 14:53:51,711 - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-05-13 14:53:51,719 - receive_response_body.started request=<Request [b'POST']>
+2025-05-13 14:55:44,599 - receive_response_body.complete
+2025-05-13 14:55:44,613 - response_closed.started
+2025-05-13 14:55:44,614 - response_closed.complete
+2025-05-13 14:58:00,030 - connect_tcp.started host='127.0.0.1' port=11434 local_address=None timeout=None socket_options=None
+2025-05-13 14:58:00,032 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000021E9E5D3E00>
+2025-05-13 14:58:00,032 - send_request_headers.started request=<Request [b'POST']>
+2025-05-13 14:58:00,033 - send_request_headers.complete
+2025-05-13 14:58:00,033 - send_request_body.started request=<Request [b'POST']>
+2025-05-13 14:58:00,033 - send_request_body.complete
+2025-05-13 14:58:00,033 - receive_response_headers.started request=<Request [b'POST']>
+2025-05-13 14:58:02,116 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Tue, 13 May 2025 07:58:02 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-05-13 14:58:02,117 - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-05-13 14:58:02,117 - receive_response_body.started request=<Request [b'POST']>
+2025-05-13 15:00:04,988 - receive_response_body.complete
+2025-05-13 15:00:05,049 - response_closed.started
+2025-05-13 15:00:05,054 - response_closed.complete
+2025-05-13 15:02:03,919 - connect_tcp.started host='127.0.0.1' port=11434 local_address=None timeout=None socket_options=None
+2025-05-13 15:02:03,921 - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000297830D3E00>
+2025-05-13 15:02:03,921 - send_request_headers.started request=<Request [b'POST']>
+2025-05-13 15:02:03,921 - send_request_headers.complete
+2025-05-13 15:02:03,921 - send_request_body.started request=<Request [b'POST']>
+2025-05-13 15:02:03,921 - send_request_body.complete
+2025-05-13 15:02:03,921 - receive_response_headers.started request=<Request [b'POST']>
+2025-05-13 15:02:08,917 - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/x-ndjson'), (b'Date', b'Tue, 13 May 2025 08:02:08 GMT'), (b'Transfer-Encoding', b'chunked')])
+2025-05-13 15:02:08,918 - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-05-13 15:02:08,919 - receive_response_body.started request=<Request [b'POST']>
+2025-05-13 15:03:17,444 - receive_response_body.complete
+2025-05-13 15:03:17,458 - response_closed.started
+2025-05-13 15:03:17,460 - response_closed.complete

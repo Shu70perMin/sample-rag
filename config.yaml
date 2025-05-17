@@ -1,7 +1,7 @@
-# ===== KG-RAG Hyperparameters =====
+# ===== RAG Hyperparameters =====
 CONTEXT_VOLUME: 100  
 QUESTION_VS_CONTEXT_SIMILARITY_PERCENTILE_THRESHOLD: 75  
-QUESTION_VS_CONTEXT_MINIMUM_SIMILARITY: 0.5  
+QUESTION_VS_CONTEXT_MINIMUM_SIMILARITY: 0
 
 # ===== Embedding Models =====
 SENTENCE_EMBEDDING_MODEL_FOR_NODE_RETRIEVAL: 'sentence-transformers/all-MiniLM-L6-v2' 
@@ -15,10 +15,10 @@ VECTOR_DB_CHUNK_OVERLAP : 200
 VECTOR_DB_BATCH_SIZE : 200
 
 # ===== Context file  =====
-CSV_PATH: './data/datasetbyshu.csv' 
+CSV_PATH: './data/data_no_sol.csv' 
 
 # ===== LLaMA Model Info =====
-LLAMA_MODEL_NAME: 'meta-llama/Llama-2-13b-chat-hf'
+LLAMA_MODEL_NAME: 'meta-llama/Llama-2-7b-chat-hf'
 LLAMA_MODEL_BRANCH: 'main'
 
 # ===== HuggingFace Cache Path =====
